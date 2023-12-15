@@ -9,7 +9,7 @@ import NotFound from '../components/NotFound/NotFound.jsx';
 export const App = () => {
   return (
   <Routes>
-    <Route path='./index.html' element={<Home />} />
+    <Route path='/' element={<Home />} />
     <Route path='/movies' element={<Movies />} />
     <Route path="/movies/:movieId" element={<MovieDetails />}>
         <Route path="cast" element={<Cast />} />
