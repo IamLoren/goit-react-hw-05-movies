@@ -11,7 +11,7 @@ import MovieGallery from 'components/MovieGallery/MovieGallery.jsx';
 useEffect(() => {
 const getMovies = async () => {
   try {
-    const res = await getAllMovies();
+    const res = await getAllMovies('/trending/movie/day');
     setMovies(res.results)
   } catch (error) {
     console.log(error)
@@ -20,12 +20,11 @@ const getMovies = async () => {
 getMovies();
 }, [])
 
-const memoizedMovies = useMemo(() => movies, [movies]);
 
   return (
     <>
     <Header />
-    <MovieGallery movies={memoizedMovies} />
+    <MovieGallery title='Trending today' movies={movies} />
     </>
   );
 };
