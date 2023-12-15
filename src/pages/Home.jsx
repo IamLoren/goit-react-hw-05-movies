@@ -1,5 +1,5 @@
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import Header from '../components/Header/Header.jsx';
 import {getAllMovies} from '../services/api.js';
 import MovieGallery from 'components/MovieGallery/MovieGallery.jsx';
@@ -20,10 +20,12 @@ const getMovies = async () => {
 getMovies();
 }, [])
 
+const memoizedMovies = useMemo(() => movies, [movies]);
+
   return (
     <>
-     <Header />
-    <MovieGallery movies={movies} />
+    <Header />
+    <MovieGallery movies={memoizedMovies} />
     </>
   );
 };

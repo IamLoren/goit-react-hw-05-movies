@@ -1,10 +1,10 @@
 import React from 'react';
 import MovieCard from 'components/MovieCard/MovieCard';
-import {StyledUl, StyledTitle} from './MovieGallery.styled'
+import {StyledUl, StyledTitle, StyledSection} from './MovieGallery.styled'
 
 const MovieGallery = ({movies}) => {
   return ( 
-    <section>
+    <StyledSection>
         <StyledTitle>The best films chosen by the audience</StyledTitle>
          <StyledUl>
       {movies && movies.length > 0 ? (
@@ -15,7 +15,7 @@ const MovieGallery = ({movies}) => {
         <p>No movies available</p>
       )}
     </StyledUl>
-    </section>
+    </StyledSection>
    
   )
 }
