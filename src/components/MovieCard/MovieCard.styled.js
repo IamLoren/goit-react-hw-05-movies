@@ -11,6 +11,7 @@ const StyledLi = styled.li`
         width: 100%;
         border-radius: 5px;
         margin-bottom: 10px;
+        object-fit: contain;
     }
 
     &:hover {

@@ -7,6 +7,7 @@ import Reviews  from '../components/Reviews/Reviews.jsx';
 import NotFound from '../components/NotFound/NotFound.jsx';
 
 export const App = () => {
+
   return (
   <Routes>
     <Route path='/' element={<Home />} />

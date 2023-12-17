@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Header from '../components/Header/Header.jsx';
 import SearchForm from 'components/SearchForm/SearchForm.jsx';
 import MovieGallery from 'components/MovieGallery/MovieGallery.jsx';
@@ -8,34 +9,37 @@ import { getAllMovies } from 'services/api.js';
 
 const [query, setQuery] = useState('');
 const [moviesByQuery, setMoviesByQuery] = useState([]);
+const [searchParams, setSearchParams] = useSearchParams();
+const queryWord = searchParams.get('queryWord') || '';
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
-  setQuery(event.target.query.value);
+   const queryParam = event.target.queryInput.value;
+     setQuery(queryParam); 
+  setSearchParams(queryParam ? {queryWord: queryParam} : {});
+
 }
 
 useEffect(() => {
-  if(query) {
+  if(queryWord.trim()) {
      const getMovies = async () => {
     try {
-      const res = await getAllMovies('/search/movie', query);
+      const res = await getAllMovies('/search/movie', queryWord);
       setMoviesByQuery(res.results);
-      console.log(res.results)
     } catch (error) {
       console.log(error)
     }
   }
   getMovies();
   } 
-},[query])
+},[queryWord])
 
-console.log(query)
   return (
     <>
     <Header />
     <main>
-      <SearchForm query={query} handleFormSubmit={handleFormSubmit}/>
-      <MovieGallery title='movies found by query' movies={moviesByQuery}/>
+      <SearchForm handleFormSubmit={handleFormSubmit}/>
+      {queryWord && <MovieGallery title='movies found by query' movies={moviesByQuery}/>} 
     </main>
     </>
   );

@@ -1,11 +1,17 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams} from 'react-router-dom';
 import Header from '../components/Header/Header.jsx';
 
 const MovieDetails = () => {
+
+const {movieId} = useParams();
+
+
   return (
     <>
       <Header />
+      <button>Go back</button>
+
       <Outlet />
     </>
   );

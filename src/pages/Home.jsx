@@ -1,5 +1,5 @@
 
-import {useState, useEffect, useMemo} from 'react'
+import {useState, useEffect} from 'react'
 import Header from '../components/Header/Header.jsx';
 import {getAllMovies} from '../services/api.js';
 import MovieGallery from 'components/MovieGallery/MovieGallery.jsx';
@@ -24,7 +24,7 @@ getMovies();
   return (
     <>
     <Header />
-    <MovieGallery title='Trending today' movies={movies} />
+    <MovieGallery title='Trending today' movies={movies}/>
     </>
   );
 };
