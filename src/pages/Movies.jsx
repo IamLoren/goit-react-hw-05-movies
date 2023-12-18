@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
  const Movies = () => {
 
-const [query, setQuery] = useState('');
+const [ , setQuery] = useState('');
 const [moviesByQuery, setMoviesByQuery] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams();
 const queryWord = searchParams.get('queryWord') || '';
