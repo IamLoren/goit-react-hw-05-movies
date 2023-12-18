@@ -24,7 +24,7 @@ getMovies();
   return (
     <>
     <Header />
-    <MovieGallery title='Trending today' movies={movies}/>
+      <MovieGallery title='Trending today' movies={movies}/>
     </>
   );
 };

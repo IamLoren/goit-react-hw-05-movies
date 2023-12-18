@@ -1,14 +1,18 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from '../pages/Home.jsx';
-import Movies from '../pages/Movies.jsx';
-import MovieDetails from '../pages/MovieDetails.jsx';
-import  Cast  from '../components/Cast/Cast.jsx';
-import Reviews  from '../components/Reviews/Reviews.jsx';
-import NotFound from '../components/NotFound/NotFound.jsx';
+import { lazy, Suspense  } from 'react';
+
+const Movies = lazy(() => import('../pages/Movies.jsx'))
+const MovieDetails = lazy(() => import('../pages/MovieDetails.jsx'))
+const Cast = lazy(() => import('../components/Cast/Cast.jsx'))
+const Reviews = lazy(() => import('../components/Reviews/Reviews.jsx'))
+const NotFound = lazy(() => import('../components/NotFound/NotFound.jsx'))
+
 
 export const App = () => {
 
   return (
+  <Suspense fallback={<div>Loading...</div>}>
   <Routes>
     <Route path='/' element={<Home />} />
     <Route path='movies' element={<Movies />} />
@@ -18,5 +22,6 @@ export const App = () => {
       </Route>
     <Route path="*" element={<NotFound />} />
   </Routes>
+  </Suspense>
   );
 };

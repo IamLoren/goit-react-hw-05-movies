@@ -1,8 +1,9 @@
+import {StyledSection} from './SearchForm.js'
 
 const SearchForm = ({ handleFormSubmit }) => {
 
   return (
-    <section className="searchSection">
+    <StyledSection className="searchSection">
       <div className="container">
         <form onSubmit={handleFormSubmit}>
           <input
@@ -15,7 +16,7 @@ const SearchForm = ({ handleFormSubmit }) => {
           </button>
         </form>
       </div>
-    </section>
+    </StyledSection>
   );
 };
 
