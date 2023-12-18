@@ -6,7 +6,7 @@ const MovieGallery = ({ movies, title }) => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const queryWord = searchParams.get('queryWord');
 
     function handleClickOnMovie (movieId) {
