@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import Home from '../pages/Home.jsx';
 import { lazy, Suspense  } from 'react';
 
@@ -6,7 +6,7 @@ const Movies = lazy(() => import('../pages/Movies.jsx'))
 const MovieDetails = lazy(() => import('../pages/MovieDetails.jsx'))
 const Cast = lazy(() => import('../components/Cast/Cast.jsx'))
 const Reviews = lazy(() => import('../components/Reviews/Reviews.jsx'))
-const NotFound = lazy(() => import('../components/NotFound/NotFound.jsx'))
+// const NotFound = lazy(() => import('../components/NotFound/NotFound.jsx'))
 
 
 export const App = () => {
@@ -20,7 +20,7 @@ export const App = () => {
         <Route path="cast" element={<Cast />} />
         <Route path="reviews" element={<Reviews />} />
       </Route>
-    <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="/" />} /> 
   </Routes>
   </Suspense>
   );

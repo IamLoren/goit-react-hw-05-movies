@@ -33,6 +33,7 @@ const MovieDetails = () => {
   } = result;
 
   const handleGoBack = () => {
+    console.log(goBackRef.current)
     navigate(goBackRef.current);
   };
 
