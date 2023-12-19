@@ -1,6 +1,7 @@
 import { useLocation, useSearchParams, Link } from 'react-router-dom';
 import MovieCard from 'components/MovieCard/MovieCard';
-import { StyledUl, StyledTitle, StyledSection } from './MovieGallery.styled';
+import { StyledUl, StyledTitle, StyledSection} from './MovieGallery.styled';
+import styled from 'styled-components';
 
 const MovieGallery = ({ movies, title }) => {
 
@@ -15,7 +16,7 @@ const MovieGallery = ({ movies, title }) => {
       <StyledUl>
         {movies && movies.length > 0 ? (
           movies.map(({ title, id, poster_path }) => (
-            <Link
+            <StyledLink
             key={id}
             to={location.pathname === '/' ? `movies/${id}` : `${id}`}
             state={
@@ -25,7 +26,7 @@ const MovieGallery = ({ movies, title }) => {
             }
           >
             <MovieCard title={title} poster={poster_path} />
-          </Link>  
+          </StyledLink>  
           ))
         ) : (
           <p>No movies available</p>
@@ -36,3 +37,8 @@ const MovieGallery = ({ movies, title }) => {
 };
 
 export default MovieGallery;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`

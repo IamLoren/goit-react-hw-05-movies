@@ -18,4 +18,5 @@ list-style: none;
 padding: 50px 15px;
 `
 
-export { StyledTitle, StyledUl, StyledSection };
+
+export { StyledTitle, StyledUl, StyledSection};

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledLi = styled.li`
+    height: 550px;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
